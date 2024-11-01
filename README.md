@@ -9,12 +9,25 @@
 
 <div align="center">
 
-`10.22.24`
-
-</div>
+`11.01.24`
 
 > [!CAUTION]
 > **Fast Flags are extremely powerful, being that they are intended to only be used by Roblox engineers. While they can be very useful, they can cause issues with stability and functionality if you don't know what you're doing.**
+
+#### Version: `11.01.24`
+* **207 Currently Listed**
+* **`Slide on Terrain/Mesh`**
+* **`Drive Vehicles Slowly`**
+* **`Replace all Decals with a Test Image`**
+* **Updated `Unified Lighting` to work for the lastest update**
+* **Updated `Blue Theme`**
+* **Updated `V2 Menu 2`**
+* **`Better Trackpad Scrolling`**
+* **`Maximum Dev Console Log Limit`/`Self Explanatory 12`**
+* **[Upcoming Updates Progress](assets/lists/updates/progress.md)**
+
+## List Meanings
+**✨ - sOmethin rare hArd to get > like a holy treAsure its dat one thIng you gotta hAve could be a shoe a cAr or a piece of arT + everybody wAnts it but only a fEw get it = it’s dat uLtimate find ya feel me?**
 
 ## Bloxstrap How to Use:
 1. **Open** the **[Bloxstrap Menu](https://github.com/pizzaboxer/bloxstrap)**.
@@ -65,6 +78,7 @@
 * **[Audio](https://github.com/fastvariable/nvrmaintain/tree/master?tab=readme-ov-file#audio-related)**
 * **[lol](https://github.com/fastvariable/nvrmaintain/tree/master?tab=readme-ov-file#lol)**
 * **[Debug](https://github.com/fastvariable/nvrmaintain/tree/master?tab=readme-ov-file#debug)**
+* **[Links](https://github.com/fastvariable/nvrmaintain/tree/master?tab=readme-ov-file#links)**
 
 <div align="center">
 
@@ -141,13 +155,31 @@ Wish it was different than what it was
 ### Unified Lighting
 ```json
 {
-    "FFlagRenderUnifiedLighting6": "True",
+    "FFlagRenderUnifiedLighting10": "True",
     "FFlagUnifiedLightingBetaFeature": "True"
 }
 ```
 
 <h1 align="center">Graphical Settings</h1>
 
+
+### Move Pre-Render Phase [~25% Performance Boost]
+> [!IMPORTANT]  
+> This FastFlag moves the Pre-Render task to an off thread after all other tasks are completed. By default, Pre-Render runs first, forcing the render thread to wait until the Pre-Render process finishes before it can start rendering a frame.
+
+> [!NOTE]
+> With this FastFlag enabled, Pre-Renderer is executed while the main thread is processing the previous frame. This adjustment allows the main thread to proceed without waiting for Pre-Renderer, leading to increased framerates at the expense of some frame latency.
+
+> [!TIP]
+> This flag is most effective in CPU-bound scenarios.
+
+> [!CAUTION]
+> Enabling this FastFlag may lead to compatibility issues with certain games. (It works fine dw)
+```json
+{
+    "FFlagMovePrerender": "True"
+}
+```
 ### Increased Grass Motion & No Grass Motion
 ```json
 {
@@ -699,6 +731,12 @@ High
 
 <h1 align="center">User Interface/Visuals</h1>
 
+### Voicechat Mute Toggles
+```json
+{
+    "FFlagMuteTogglesEnableIXP": "False"
+}
+```
 ### 🍔
 > [!NOTE]
 > **Chrome UI only**
@@ -780,17 +818,17 @@ High
     "FFlagEnableNavBarLabels3": "False"
 }
 ```
-### V1 Menu Fix
-```json
-{
-    "FFlagSettingsHubIndependentBackgroundVisibility": "True",
-    "FFlagFixReportButtonCutOff": "False"
-}
+### V1 Menu Fix [Temporary]
+```
+Switch your channel to zprojectuwpua for a temporary fix!
 ```
 ### V2 Menu
 ```json
 {
-    "FIntNewInGameMenuPercentRollout3": "1000"
+    "FIntNewInGameMenuPercentRollout3": "100",
+    "FFlagEnableInGameMenuControls": "False",
+    "FFlagDisableNewIGMinDUA": "True",
+    "FFlagEnableInGameMenuChromeABTest4": "False"
 }
 ```
 ### Custom Disconnect Message
@@ -892,10 +930,9 @@ High
 ### Blue Theme
 ```json
 {
-    "FFlagLuaAppEnableFoundationColors3": "True"
+    "FFlagLuaAppEnableFoundationColors6": "True"
 }
 ```
-
 ### No Transparency V4 Menu **(2023)**
 ```json
 {
@@ -1023,6 +1060,12 @@ High
 {
     "FFlagPlatformEventEnabled2": "True",
     "FStringPlatformEventUrl": "AnyLinkHere"
+}
+```
+### Better Trackpad Scrolling
+```json
+{
+    "FFlagBetterTrackpadScrolling": "True"
 }
 ```
 
@@ -1167,33 +1210,26 @@ High
 
 <h1 align="center">lol</h1>
 
+### break everything
+```
+{
+    "DFIntHttpRbxApiClientPerMinuteRequestLimit": "60",
+    "DFIntHttpRbxApiJobFrequencyInSeconds": "60",
+    "DFIntHttpRbxApiMaxBudgetMultiplier": "2",
+    "DFIntHttpRbxApiMaxRetryBudgetPerMinute": "60",
+    "DFIntHttpRbxApiMaxRetryCount": "3",
+    "DFIntHttpRbxApiMaxRetryQueueSize": "1000",
+    "DFIntHttpRbxApiMaxSyncRetries": "3",
+    "DFIntHttpRbxApiPerMinuteRequestLimit": "60",
+    "DFIntHttpRbxApiSameUrlRequestLimit": "30",
+    "DFIntHttpRbxApiServiceDecaySeconds": "300",
+    "DFIntHttpRbxApiMaxThrottledQueue": "500"
+}
+```
 ### Stop the Chinese from spying on you
 ```json
 {
     "FStringTencentAuthPath": "null"
-}
-```
-### Don't Touch The Wall! 1
-```json
-{
-    "DFIntDebugSimPrimalNewtonIts": "-2147483647",
-    "DFIntDebugSimPrimalToleranceInv": "-2147483647",
-    "FFlagDebugSimDefaultPrimalSolver": "True"
-}
-```
-### Dont Touch The Wall! 2
-```json
-{
-    "DFIntDebugSimPrimalPreconditionerMinExp": "20",
-    "DFIntDebugSimPrimalWarmstartVelocity": "-101",
-    "DFIntDebugSimPrimalPreconditioner": "1000",
-    "DFIntDebugSimPrimalWarmstartForce": "1",
-    "DFIntDebugSimPrimalNewtonIts": "4000",
-    "DFFlagSimHumanoidTimestepModelUpdate": "True",
-    "FFlagSimAdaptiveTimesteppingDefault2": "True",
-    "FFlagDebugSimDefaultPrimalSolver": "True",
-    "DFIntDebugSimPrimalToleranceInv": "6",
-    "DFIntDebugSimPrimalLineSearch": "1"
 }
 ```
 ### omg i cant believe roblox is that dumb to do this...
@@ -1226,6 +1262,13 @@ High
 
 <h1 align="center">Debug</h1>
 
+### Replace all Decals with a Test Image 
+###### @.rbx.bloxy
+```json
+{
+    "FFlagDebugTestImageDrawItem": "True"
+}
+```
 ### Shows the state of a flag
 ```json
 {
@@ -1343,6 +1386,27 @@ High
     "DFFlagDebugSimulateHangAtShutdown": "True"
 }
 ```
+### Self Explanatory 10
+> [!NOTE]
+> **LDL Program Stats**
+```json
+{
+    "DFFlagDebugSimLDLProgramPrintBuildStats": "True",
+    "DFFlagDebugSimLDLProgramPrintExecStats": "True"
+}
+```
+### Self Explanatory 11
+```json
+{
+    "FFlagDebugCountSimBodyAllocations": "True"
+}
+```
+### Self Explanatory 12
+```
+{
+    "FIntNewDevConsoleMaxLogCount": "2147483647"
+}
+```
 <h1 align="center">Community Presets</h1>
 
 <h4 align="center">We are not accepting performance Fast Flags that aren't listed or known.</h4>
@@ -1370,13 +1434,23 @@ High
 }
 ```
 
+<h1 align="center">Links</h1>
+
+### [Bloxstrap](https://github.com/pizzaboxer/bloxstrap) *[Github Repo Link]*
+### [NVIDIA Shaders Guide](https://github.com/catb0x/Roblox-Shaders-Guide) *[Github Repo Link]*
+### [Bloxshade](https://github.com/Extravi/Bloxshade) *[Github Repo Link]*
+### [rbxperf](https://github.com/espresso-soft/rbxperf) *[Github Repo Link]*
+### [rbxservers.xyz](https://rbxservers.xyz/) *[Website]*
+
 <h4 align="center">⁺ You've reached the bottom of the list! ⁺</h4>
 
 <h3 align="center">Tools</h3>
 <p align="center"><a href="https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/FVariables.txt">FVariables.txt</a></p>
 <p align="center"><a href="https://github.com/MaximumADHD/Roblox-FFlag-Tracker">Roblox FFlag Tracker</a></p>
 <h3 align="center">Sources</h3>
+<p align="center"><a href="https://discord.gg/YvbuWggPC6">Roblox Glitching Community</a></p>
 <p align="center"><a href="https://discord.gg/nKjV3mGq6R">Bloxstrap</a></p>
+<p align="center">The people who found these fastflags</p>
 <div align="center">
 <table>
   <tr>
